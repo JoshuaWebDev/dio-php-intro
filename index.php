@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include "services/sessionMessage.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,12 +16,12 @@
 
         <form action="script.php" method="post">
             <?php
-                $successMessage = isset($_SESSION['success-message']) ? $_SESSION['success-message'] : '';
+                $successMessage = getSuccessMessage();
                 if(!empty($successMessage))
                 {
                     echo $successMessage;
                 }
-                $errorMessage = isset($_SESSION['error-message']) ? $_SESSION['error-message'] : '';
+                $errorMessage = getErrorMessage();
                 if(!empty($errorMessage))
                 {
                     echo $errorMessage;
